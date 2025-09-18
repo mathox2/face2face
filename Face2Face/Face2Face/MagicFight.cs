@@ -106,11 +106,17 @@ namespace Face2Face
 
             if (sort == Sort.soin)
             {
-                receveur.Value += degats;
+                if (receveur.Value < 100)
+                {
+                    receveur.Value += degats;
+                }
             }
             else if (sort == Sort.volVie)
             {
-                receveur.Value += degats;
+                if(receveur.Value < 100)
+                {
+                    receveur.Value += degats;
+                }
                 destinataire.Value -= degats;
             }
             else if (sort == Sort.poison)

@@ -315,9 +315,8 @@
             this.lblSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSort.Location = new System.Drawing.Point(232, 63);
             this.lblSort.Name = "lblSort";
-            this.lblSort.Size = new System.Drawing.Size(86, 16);
+            this.lblSort.Size = new System.Drawing.Size(0, 16);
             this.lblSort.TabIndex = 27;
-            this.lblSort.Text = "Sort : Soins";
             // 
             // label15
             // 
@@ -489,9 +488,8 @@
             this.lblEtat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEtat.Location = new System.Drawing.Point(232, 92);
             this.lblEtat.Name = "lblEtat";
-            this.lblEtat.Size = new System.Drawing.Size(98, 16);
+            this.lblEtat.Size = new System.Drawing.Size(0, 16);
             this.lblEtat.TabIndex = 48;
-            this.lblEtat.Text = "État :  Réussi";
             // 
             // lblPoisonJ1
             // 
