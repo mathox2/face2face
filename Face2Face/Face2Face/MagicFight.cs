@@ -136,7 +136,7 @@ namespace Face2Face
             {
                 destinataire.Value -= degats;
             }
-
+            updatePoison();
             inverserTour();
         }
         private void inverserTour()
