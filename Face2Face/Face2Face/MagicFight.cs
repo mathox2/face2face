@@ -156,7 +156,7 @@ namespace Face2Face
 
         private void updatePoison()
         {
-            if(j1Empoisonne.tour == 1)
+            if(j1Empoisonne.tour >= 1)
             {
                 j1Empoisonne.tour -= 1;
                 j1Empoisonne.bar.Value -= j1Empoisonne.degat;
@@ -167,7 +167,7 @@ namespace Face2Face
             {
                 lblPoisonJ1.Visible = false;
             }
-            if (j2Empoisonne.tour == 1)
+            if (j2Empoisonne.tour >= 1)
             {
 
                 j2Empoisonne.tour -= 1;
