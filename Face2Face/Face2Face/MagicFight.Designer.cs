@@ -73,6 +73,8 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.lblEtat = new System.Windows.Forms.Label();
+            this.lblPoisonJ1 = new System.Windows.Forms.Label();
+            this.lblPoisonJ2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +102,7 @@
             // lblJ1
             // 
             this.lblJ1.AutoSize = true;
-            this.lblJ1.Location = new System.Drawing.Point(70, 75);
+            this.lblJ1.Location = new System.Drawing.Point(79, 40);
             this.lblJ1.Name = "lblJ1";
             this.lblJ1.Size = new System.Drawing.Size(35, 13);
             this.lblJ1.TabIndex = 3;
@@ -109,7 +111,7 @@
             // lblJ2
             // 
             this.lblJ2.AutoSize = true;
-            this.lblJ2.Location = new System.Drawing.Point(465, 76);
+            this.lblJ2.Location = new System.Drawing.Point(453, 40);
             this.lblJ2.Name = "lblJ2";
             this.lblJ2.Size = new System.Drawing.Size(35, 13);
             this.lblJ2.TabIndex = 4;
@@ -491,11 +493,33 @@
             this.lblEtat.TabIndex = 48;
             this.lblEtat.Text = "État :  Réussi";
             // 
+            // lblPoisonJ1
+            // 
+            this.lblPoisonJ1.AutoSize = true;
+            this.lblPoisonJ1.Location = new System.Drawing.Point(18, 83);
+            this.lblPoisonJ1.Name = "lblPoisonJ1";
+            this.lblPoisonJ1.Size = new System.Drawing.Size(104, 13);
+            this.lblPoisonJ1.TabIndex = 49;
+            this.lblPoisonJ1.Text = "Tour poison restant :";
+            this.lblPoisonJ1.Visible = false;
+            // 
+            // lblPoisonJ2
+            // 
+            this.lblPoisonJ2.AutoSize = true;
+            this.lblPoisonJ2.Location = new System.Drawing.Point(409, 83);
+            this.lblPoisonJ2.Name = "lblPoisonJ2";
+            this.lblPoisonJ2.Size = new System.Drawing.Size(104, 13);
+            this.lblPoisonJ2.TabIndex = 50;
+            this.lblPoisonJ2.Text = "Tour poison restant :";
+            this.lblPoisonJ2.Visible = false;
+            // 
             // MagicFight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 607);
+            this.Controls.Add(this.lblPoisonJ2);
+            this.Controls.Add(this.lblPoisonJ1);
             this.Controls.Add(this.lblEtat);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.textBox5);
@@ -599,5 +623,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblEtat;
+        private System.Windows.Forms.Label lblPoisonJ1;
+        private System.Windows.Forms.Label lblPoisonJ2;
     }
 }

@@ -20,10 +20,18 @@ namespace Face2Face
             poison
         }
 
+        int degatJ1 = 10;
+        int degatJ2 = 10;
+
+
+        (ProgressBar bar, int tour, int degat) j1Empoisonne;
+        (ProgressBar bar, int tour, int degat) j2Empoisonne;
 
         public MagicFight()
         {
             InitializeComponent();
+            j1Empoisonne = (pgbVieJ1, 0, 0);
+            j2Empoisonne = (pgbVieJ2, 0, 0);
         }
 
         private void btnTirerJ1_Click(object sender, EventArgs e)
@@ -67,35 +75,62 @@ namespace Face2Face
 
 
             ProgressBar destinataire;
-            int degats;
+            ProgressBar receveur;
+            int degats = 0;
+
+            if (j1ATire && sortReussis)
+            {
+                destinataire = pgbVieJ2;
+                receveur = pgbVieJ1;
+                degats = degatJ1;
+            }
+            else if (!j1ATire && !sortReussis)
+            {
+
+                destinataire = pgbVieJ2;
+                receveur = pgbVieJ1;
+                degats = degatJ2;
+            }
+            else if (!j1ATire && sortReussis)
+            {
+                destinataire = pgbVieJ1;
+                receveur = pgbVieJ2;
+                degats = degatJ2;
+            }
+            else
+            {
+                destinataire = pgbVieJ1;
+                receveur = pgbVieJ2;
+                degats = degatJ1;
+            }
 
             if (sort == Sort.soin)
             {
-                degats = 10;
-
-                if (j1ATire && sortReussis || !j1ATire && !sortReussis)
+                receveur.Value += degats;
+            }
+            else if (sort == Sort.volVie)
+            {
+                receveur.Value += degats;
+                destinataire.Value -= degats;
+            }
+            else if (sort == Sort.poison)
+            {
+                if (destinataire == j1Empoisonne.bar)
                 {
-                    destinataire = pgbVieJ1;
+                    j1Empoisonne.tour = 5;
+                    j1Empoisonne.degat = degats;
                 }
                 else
                 {
-                    destinataire = pgbVieJ2;
+                    j2Empoisonne.tour = 5;
+                    j2Empoisonne.degat = degats;
                 }
             }
             else
             {
-                degats = -10;
-
-                if (j1ATire && sortReussis || !j1ATire && !sortReussis)
-                {
-                    destinataire = pgbVieJ2;
-                }
-                else
-                {
-                    destinataire = pgbVieJ1;
-                }
+                destinataire.Value -= degats;
             }
-            destinataire.Value += degats;
+
             inverserTour();
         }
         private void inverserTour()
@@ -111,6 +146,33 @@ namespace Face2Face
             tbxChanceJ2.Enabled = tourActuel;
             tbxPuissanceJ2.Enabled = tourActuel;
             btnTirerJ2.Enabled = tourActuel;
+        }
+
+        private void updatePoison()
+        {
+            if(j1Empoisonne.tour > 1)
+            {
+                j1Empoisonne.tour -= 1;
+                j1Empoisonne.bar.Value -= j1Empoisonne.degat;
+                lblPoisonJ1.Visible = true;
+                lblPoisonJ1.Text = "Tour poison restant " + j1Empoisonne.tour;
+            }
+            else
+            {
+                lblPoisonJ1.Visible = false;
+            }
+            if (j2Empoisonne.tour > 1)
+            {
+
+                j2Empoisonne.tour -= 1;
+                j2Empoisonne.bar.Value -= j2Empoisonne.degat;
+                lblPoisonJ2.Visible = true;
+                lblPoisonJ2.Text = "Tour poison restant " + j2Empoisonne.tour;
+            }
+            else
+            {
+                lblPoisonJ2.Visible = false;
+            }
         }
     }
 }
